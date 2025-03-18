@@ -16,10 +16,23 @@ class LarevueiaSpider(scrapy.Spider):
     def parse(self, response):
         for article in response.css('a[rel="bookmark"]'):
             url = article.css('::attr(href)').get()
-            yield {
-            'url': url,
-            'title': article.css('::text').get()
-            }
+            # yield {
+            # 'url': url,
+            # 'title': article.css('::text').get()
+            # }
+
+            yield response.follow(url, callback=self.parse_news_page)
+            # break
+    
+
+    def parse_news_page(self, response):
+        yield {
+            'url': response.url,
+            'title': response.css('h1.entry-title span::text').get(),
+            'author': response.css('li.entry-author-meta a::text').get(),
+            'date': response.css('li.entry-date time::text').get(),
+            'content': response.css('div.entry-content').get(),
+        }
 
 
 # cursor.execute("""
