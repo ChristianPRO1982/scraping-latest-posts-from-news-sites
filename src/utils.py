@@ -1,4 +1,3 @@
-import os
 import pandas as pd
 from bs4 import BeautifulSoup
 import html2text
@@ -10,12 +9,40 @@ class CleanJsonScraped:
         self.logs = logs
         self.json_path = json_path
         self.df = None
-        self.DEBUG = os.getenv('DEBUG')
+        self.articles = None
+
+        self.status = True
         
         self.logs.logging_msg(f"[{self.__class__.__name__} | __init__] START")
+        self.read_json_file(json_path)
 
 
-    def read_and_clean_csv_file(self, file_path):
+    def read_json(self):
+        prefix = f'[{self.__class__.__name__} | read_json]'
+
+        try:
+            self.logs.logging_msg(f"{prefix} start", 'DEBUG')
+
+            self.articles = []
+            
+            for index, row in self.df.iterrows():
+                content = self.clean_html_to_markdown(row['content'])
+
+                if content:
+                    self.articles.append(Article(
+                        self.logs,
+                        row['url'],
+                        row['title'],
+                        row['author'],
+                        row['date'],
+                        ))
+
+        except Exception as e:
+            self.logs.logging_msg(f"{prefix} {e}", 'ERROR')
+            self.status = False
+
+
+    def read_json_file(self, file_path:str)->bool:
         prefix = f'[{self.__class__.__name__} | read_and_clean_csv_file]'
 
         try:
@@ -25,11 +52,11 @@ class CleanJsonScraped:
         
         except Exception as e:
             self.df = None
-            self.logs.logging_msg(f"{prefix} {e}", 'ERROR')
+            self.logs.logging_msg(f"{prefix} {e}", 'WARNING')
             return False
 
 
-    def clean_html_to_markdown(self, html_content):
+    def clean_html_to_markdown(self, html_content:str)->str:
         prefix = f'[{self.__class__.__name__} | clean_html_to_markdown'
 
         try:
@@ -52,5 +79,18 @@ class CleanJsonScraped:
             return markdown_text
         
         except Exception as e:
-            self.logs.logging_msg(f"{prefix} {e}", 'ERROR')
+            self.logs.logging_msg(f"{prefix} {e}", 'WARNING')
             return None
+
+
+####################################################################################################
+
+
+class Article:
+    def __init__(self, logs, url:str, title:str, author:str, date:str, content:str):
+        self.logs = logs
+        self.url = url
+        self.title = title
+        self.author = author
+        self.date = date
+        self.content = content

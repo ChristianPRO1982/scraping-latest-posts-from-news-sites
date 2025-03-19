@@ -4,13 +4,13 @@ from src.logs import Logs
 
 logs = Logs()
 
-def test_read_and_clean_csv_file():
+def test_read_json_file():
     clean_json = CleanJsonScraped(logs, './test/test.json')
     
-    assert clean_json.read_and_clean_csv_file('./test/test.json') == True
-    assert clean_json.read_and_clean_csv_file('') == False
-    assert clean_json.read_and_clean_csv_file('test.json') == False
-    assert clean_json.read_and_clean_csv_file('test') == False
+    assert clean_json.read_json_file('./test/test.json') == True
+    assert clean_json.read_json_file('') == False
+    assert clean_json.read_json_file('test.json') == False
+    assert clean_json.read_json_file('test') == False
 
 def test_clean_html_to_markdown():
     clean_json = CleanJsonScraped(logs, './test/test.json')
