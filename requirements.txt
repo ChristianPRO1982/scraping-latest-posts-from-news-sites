@@ -1,3 +1,6 @@
 scrapy
 pytest
 python-dotenv
+pandas
+bs4
+html2text

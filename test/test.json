@@ -1,0 +1,16 @@
+[
+    {
+        "url": "https://www.test.com/",
+        "title": "Test 01",
+        "author": "PyTest",
+        "date": "\n13 mai 2020\n",
+        "content": "<html><head><title>Test 01</title></head><body><h1>Test 01</h1><p>Author: PyTest</p><p>Date: 13 mai 2020</p><p>Content</p></body></html>"
+    },
+    {
+        "url": "https://www.example.com/",
+        "title": "Test 02",
+        "author": "ExampleAuthor",
+        "date": "\n14 juin 2021\n",
+        "content": "<html><head><title>Example 02</title></head><body><h1>Example 02</h1><p>Author: ExampleAuthor</p><p>Date: 14 juin 2021</p><h2>Titre 2</h2><h3>Titre 3</h3><p><em>Example</em> content</p></body></html>"
+    }
+]

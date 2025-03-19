@@ -7,3 +7,23 @@
 To keep an eye on NLP topics
 
 [Flowchart](https://github.com/ChristianPRO1982/ai-subject-monitoring-project?tab=readme-ov-file#NS-flowchart)
+
+## launchers
+
+### app
+
+```bash
+PYTHONPATH=$(pwd) python3 src/main.py
+```
+
+### Pytest
+
+```bash
+PYTHONPATH=$(pwd) pytest
+```
+
+or
+
+```bash
+rm ???.db && PYTHONPATH=$(pwd) pytest
+```
