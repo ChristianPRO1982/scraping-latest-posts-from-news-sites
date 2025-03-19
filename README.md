@@ -8,12 +8,24 @@ To keep an eye on NLP topics
 
 [Flowchart](https://github.com/ChristianPRO1982/ai-subject-monitoring-project?tab=readme-ov-file#NS-flowchart)
 
+## files
+
+### .env
+
+```bash
+DEBUG=1 # 0: off, 1: on, 2: on with debug messages, 3: on with only SQL queries, 4: for pytest
+LOG_RETENTION_DAYS=63
+LOGS_PATH='./logs/'
+
+OUTPUT_PATH='./scrapy_news/scrapy_news/output/'
+```
+
 ## launchers
 
 ### app
 
 ```bash
-PYTHONPATH=$(pwd) python3 src/main.py
+PYTHONPATH=$(pwd) python src/main.py
 ```
 
 ### Scrapy

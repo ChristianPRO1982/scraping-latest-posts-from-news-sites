@@ -2,7 +2,9 @@ import pytest
 from src.utils import CleanJsonScraped
 from src.logs import Logs
 
+
 logs = Logs()
+
 
 def test_read_json_file():
     clean_json = CleanJsonScraped(logs, './test/test.json')
