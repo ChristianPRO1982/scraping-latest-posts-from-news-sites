@@ -1,6 +1,7 @@
 import pandas as pd
 from bs4 import BeautifulSoup
 import html2text
+from urllib.parse import urlparse
 
 
 
@@ -15,6 +16,7 @@ class CleanJsonScraped:
         
         self.logs.logging_msg(f"[{self.__class__.__name__} | __init__] START")
         self.read_json_file(json_path)
+        self.read_json()
 
 
     def read_json(self):
@@ -35,6 +37,7 @@ class CleanJsonScraped:
                         row['title'],
                         row['author'],
                         row['date'],
+                        content
                         ))
 
         except Exception as e:
@@ -75,7 +78,7 @@ class CleanJsonScraped:
             markdown_converter.ignore_links = False   # Keep hyperlinks
             
             markdown_text = markdown_converter.handle(str(soup))
-            print(markdown_text)
+            
             return markdown_text
         
         except Exception as e:
@@ -90,6 +93,8 @@ class Article:
     def __init__(self, logs, url:str, title:str, author:str, date:str, content:str):
         self.logs = logs
         self.url = url
+        self.domain = urlparse(url).netloc
+        print(self.domain)
         self.title = title
         self.author = author
         self.date = date

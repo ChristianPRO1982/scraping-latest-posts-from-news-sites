@@ -11,16 +11,17 @@ if __name__ == "__main__":
     logs = Logs()
 
     #00 INIT
-    if logs.status:
-        exit(0)
+    if logs.status: exit(0)
     logs.logging_msg("[main | __main__] START", 'WARNING')
     
     #01 scraping
 
     #02 transform HTML to markdown and clean data
-    HtmlToMarkdown(logs, SCRAPING_PATH)
+    html_to_md = HtmlToMarkdown(logs, SCRAPING_PATH)
+    if not html_to_md.status: exit(1)
 
     #03 save in txt file
+    
 
     #04 Global DB
 
