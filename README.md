@@ -16,6 +16,12 @@ To keep an eye on NLP topics
 PYTHONPATH=$(pwd) python3 src/main.py
 ```
 
+### Scrapy
+
+```bash
+scrapy crawl larevueia -O output/scraping/larevueia.json --set LOG_LEVEL=WARNING --logfile=output/scrapy_logs/scrapy.log
+```
+
 ### Pytest
 
 ```bash
