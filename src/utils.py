@@ -92,8 +92,8 @@ class CleanJsonScraped:
 class Article:
     def __init__(self, logs, url:str, title:str, author:str, date:str, content:str):
         self.logs = logs
-        self.url = url
         self.domain = urlparse(url).netloc
+        self.url = url
         self.title = title
         self.author = author
         self.date = date

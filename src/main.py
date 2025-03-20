@@ -3,6 +3,8 @@ import os
 from src.logs import Logs
 from src.utils_02_html_to_markdown import HtmlToMarkdown
 from src.utils_03_save_txt import MarkdownToTxt
+from src.utils_04_global_db import GlobalDB
+
 
 
 dotenv.load_dotenv(override=True)
@@ -27,6 +29,7 @@ if __name__ == "__main__":
     if not markdown_to_txt.status: exit(2)
 
     #04 Global DB
+    global_db = GlobalDB(logs)
 
 
     logs.logging_msg("[main | __main__] END", 'WARNING')
