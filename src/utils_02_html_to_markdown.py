@@ -7,12 +7,11 @@ class HtmlToMarkdown:
     def __init__(self, logs, scraping_path:str):
         self.logs = logs
         self.scraping_path = scraping_path
-        self.logs.logging_msg(f"[{self.__class__.__name__} | __init__] START")
         self.json_files = None
         self.news_sites = None
 
+        self.logs.logging_msg(f"[{self.__class__.__name__} | __init__] START")
         self.status = True
-
         self.list_json_files()
         self.clean_json()
 

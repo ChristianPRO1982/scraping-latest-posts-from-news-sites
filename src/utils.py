@@ -94,7 +94,6 @@ class Article:
         self.logs = logs
         self.url = url
         self.domain = urlparse(url).netloc
-        print(self.domain)
         self.title = title
         self.author = author
         self.date = date
