@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/ChristianPRO1982/scraping-latest-posts-from-news-sites/compare/v1.2.0...v1.3.0) (2025-03-20)
+
+
+### Bug Fixes
+
+* init Global DB ([45c0100](https://github.com/ChristianPRO1982/scraping-latest-posts-from-news-sites/commit/45c0100aa9ee3edc233fe7677515e04e41237022))
+
+
+### Features
+
+* save markdown in .md files ([af9466b](https://github.com/ChristianPRO1982/scraping-latest-posts-from-news-sites/commit/af9466b50f85a2398b346477a849a46c7a9406c0))
+
 # [1.2.0](https://github.com/ChristianPRO1982/scraping-latest-posts-from-news-sites/compare/v1.1.0...v1.2.0) (2025-03-19)
 
 
